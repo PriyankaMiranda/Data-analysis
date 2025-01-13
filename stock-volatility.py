@@ -28,7 +28,6 @@ class StockVolatility:
         plt.plot(self.stock_data['Year_Month'], self.stock_data['Volatility (Bi-annual)'], label='Volatility (6 months)', color='orange')
         plt.plot(self.stock_data['Year_Month'], self.stock_data['Volatility (Yearly)'], label='Volatility (12 months)', color='red')
 
-        
         plt.xticks(self.stock_data['Year_Month'][::251], rotation=45)  # 251 days in a stock market year 
         plt.xlabel('Year-Month')
         plt.ylabel('Volatility')
@@ -36,10 +35,9 @@ class StockVolatility:
         plt.legend()
         plt.tight_layout()
         
-        # Save the plot as an image file
         output_path = "./results/stock_volatility_results/"+self.symbol+".png"
-        plt.savefig(output_path, dpi=300)  # dpi=300 for high resolution
-        plt.close()  # Close the plot to free memory
+        plt.savefig(output_path, dpi=300)  
+        plt.close()  
 
 my_symbols = ["AAPL", "NVDA", "AMD", "TSLA", "AMZN", "MSFT", "GOOGL"]
 
