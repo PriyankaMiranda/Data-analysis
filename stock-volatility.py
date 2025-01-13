@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 class StockVolatility:
     def __init__(self, file_path, symbol):
         self.function = "Determines Stock Volatility"
@@ -26,6 +27,9 @@ class StockVolatility:
         plt.plot(self.stock_data['Year_Month'], self.stock_data['Volatility (Monthly)'], label='Volatility (1 month)', color='blue')
         plt.plot(self.stock_data['Year_Month'], self.stock_data['Volatility (Bi-annual)'], label='Volatility (6 months)', color='orange')
         plt.plot(self.stock_data['Year_Month'], self.stock_data['Volatility (Yearly)'], label='Volatility (12 months)', color='red')
+
+        
+        plt.xticks(self.stock_data['Year_Month'][::251], rotation=45)  # 251 days in a stock market year 
         plt.xlabel('Year-Month')
         plt.ylabel('Volatility')
         plt.title('Stock Price and Volatility')
